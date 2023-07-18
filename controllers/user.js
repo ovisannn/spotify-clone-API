@@ -55,7 +55,6 @@ export function AddPlaylistController(req, res){
     }
 
     var newResponse = new baseResponse(status, result)
-    res.redirect(result)
     return res.status(status).json(newResponse)
 
 }

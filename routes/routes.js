@@ -1,6 +1,6 @@
 // import {Hello} from '../controllers/test.js'
 import { GetAllUserController, InsertUserController, AddPlaylistController } from "../controllers/user.js"
-import { GetAllSongController, PlaySongController } from "../controllers/song.js"
+import { GetAllSongController, PlaySongController, GetMostPlayedController, GetAllMostPlayedController } from "../controllers/song.js"
 
 export default function(app) {
     //get all user
@@ -24,4 +24,9 @@ export default function(app) {
     .get(PlaySongController)
 
     //show most played => sort
+    app.route('/mostPlayed')
+    .get(GetMostPlayedController)
+
+    app.route('/songs/sort/mostplayed')
+    .get(GetAllMostPlayedController)
 }
