@@ -1,6 +1,6 @@
 // import {Hello} from '../controllers/test.js'
 import { GetAllUserController, InsertUserController, AddPlaylistController } from "../controllers/user.js"
-import { GetAllSongController } from "../controllers/song.js"
+import { GetAllSongController, PlaySongController } from "../controllers/song.js"
 
 export default function(app) {
     //get all user
@@ -8,7 +8,7 @@ export default function(app) {
     .get(GetAllUserController)
     
     //add user
-    app.route('/insertUser')
+    app.route('/add/user')
     .post(InsertUserController)
 
     //show all songs
@@ -19,6 +19,9 @@ export default function(app) {
     app.route('/add/playlist/')
     .patch(AddPlaylistController)
 
-    //show most played => sort
     //play song => need user id & song id
+    app.route('/:userId/play/:songId')
+    .get(PlaySongController)
+
+    //show most played => sort
 }

@@ -2,7 +2,7 @@ import {Users} from '../db/db.js'
 import { v4 as uuidv4 } from 'uuid';
 import { dummySong } from './Songs.js';
 
-let dummyData = Users
+export let dummyData = Users
 
 class UserClass{
     constructor(object){
@@ -39,7 +39,6 @@ export function InsertUser(newUser){
     }
 
 export function AddSongToPlaylist(userId, songId){
-
     var userFound = dummyData.find(data=>data.id===userId)
     var songFound = dummySong.find(data=>data.id===songId)
     // console.log(userFound)
