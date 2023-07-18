@@ -7,10 +7,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 Routes(app)
 
-app.use(function universalErrorHandler(req, res, next, err) {
-    console.error("oh no something went wrong!");
-    console.error(err);
-  });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

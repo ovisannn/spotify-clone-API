@@ -1,6 +1,6 @@
 import {Users} from '../db/db.js'
 import { v4 as uuidv4 } from 'uuid';
-
+import { dummySong } from './Songs.js';
 
 let dummyData = Users
 
@@ -37,3 +37,15 @@ export function InsertUser(newUser){
             return data
         }}).id
     }
+
+export function AddSongToPlaylist(userId, songId){
+
+    var userFound = dummyData.find(data=>data.id===userId)
+    var songFound = dummySong.find(data=>data.id===songId)
+    // console.log(userFound)
+    if(userFound === undefined || songFound === undefined){
+        return undefined
+    }
+    userFound.playlist.push(songFound)
+    return userFound.playlist
+}
